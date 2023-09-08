@@ -4,7 +4,6 @@ import Home from "./Home";
 import About from "./About";
 import Categories from "./Categories";
 import Category from "./Category";
-import Session from "./Session";
 import Header from "./Header";
 
 function App() {
@@ -16,13 +15,16 @@ function App() {
         <Route path="/" element={<Home title="Welcome to Red30 Tech" />} />
         <Route path="about" element={<About />} />
         <Route path="categories" element={<Categories />}>
-          <Route path=":catId" element={<Category />}>
-            <Route path=":sessionId" element={<Session />} />
-          </Route>
+          <Route path=":catId" element={<Category />} />
+          <Route index element={<h3>Select a category from above</h3>}/>
         </Route>
         <Route
           path="*"
           element={<h1 className="not-found">Page Not Found</h1>}
+        />
+        <Route
+          path="test"
+          element={<h1>Test</h1>}
         />
       </Routes>
 
